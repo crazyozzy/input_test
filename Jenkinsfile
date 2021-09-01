@@ -4,10 +4,10 @@ pipeline {
     stages {
         stage('Hello') {
             input {
-                message "Should we continue?"
+                message "Please, choose cred from apropriate project"
                 ok "Yes, let's have a fun."
                 parameters {
-                    credentials(name: 'sec_req', description: 'secret?')
+                    credentials(name: 'sec_req', description: 'select cred')
                 }
             }
             steps {
