@@ -5,6 +5,10 @@ pipeline {
     }
     stages {
         stage('Hello') {
+            input {
+                message "Should we continue?"
+                ok "Yes, let's have a fun."
+            }
             steps {
                 println("Credential ID: ${sec_req}")
             }
