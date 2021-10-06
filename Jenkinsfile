@@ -8,6 +8,7 @@ pipeline {
             steps {
                 script {
                     def reg = params.CredID
+                    echo ("foo " + reg)
                 }
             }
         }
