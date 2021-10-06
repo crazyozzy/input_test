@@ -17,7 +17,8 @@ pipeline {
                 ok "Yes, let's have a fun."
             }
             steps {
-                println("Job with CredID: ${params.CredID} done.\nCluster: ${reg}")
+               // println("Job with CredID: ${params.CredID} done.\nCluster: ${reg}")
+                println reg[0]
             }
         }
     }
