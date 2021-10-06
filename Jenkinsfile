@@ -7,8 +7,7 @@ pipeline {
         stage('Hello') {
             steps {
                 script {
-                    def reg
-                    reg = params.CredID =~ /^\w+_(\w+-\w+-?\w+)-(\w+)/
+                    reg = params.CredID
                 }
             }
         }
@@ -19,7 +18,7 @@ pipeline {
             }
             steps {
                 script{
-                    println("Job with CredID: ${params.CredID} done.\nCluster: ${reg[0]}")
+                    println("Job with CredID: ${params.CredID} done.\nCluster: ${reg}")
                     //println params.reg[0]
                 }
             }
