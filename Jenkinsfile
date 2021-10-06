@@ -1,32 +1,16 @@
-import hudson.*
-import hudson.model.*
-def jenkinsCredentials = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
-        com.cloudbees.plugins.credentials.Credentials.class,
-        Jenkins.instance,
-        null,
-        null
-);
-for (creds in jenkinsCredentials) {
-    println(jenkinsCredentials.id)
-    }
-
 pipeline {
     agent any
     parameters {
-        credentials(name: 'sec_req', description: 'select cred')
+        string(name: 'CredentialID', defaultValue: '', description: 'Введите имя токена OpenShift')
     }
     stages {
         stage('Hello') {
             input {
-                message "Should we continue?"
+                message "Job will run with this params:\nOC\n${CredentialID}"
                 ok "Yes, let's have a fun."
-                parameters {
-                    credentials(name: 'sec_req_input', description: 'select cred')
-                }
             }
             steps {
-                println("Credential ID: ${sec_req}")
-                println("Credential ID: ${sec_req_input}")
+                println("Job with CredID ${CredentialID} done.")
             }
         }
     }
