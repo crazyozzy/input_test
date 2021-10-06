@@ -8,7 +8,8 @@ pipeline {
             steps {
                 script {
                     def regex = params.CredID =~ /^\w+_(\w+-\w+-?\w+)-(\w+)/
-                    reg = regex[0]
+                    reg1 = regex[0][1]
+                    reg1 = regex[0][2]
                 }
             }
         }
@@ -20,7 +21,8 @@ pipeline {
             steps {
                 script{
                     println("Job with CredID: ${params.CredID} done.")
-                    echo ("Cluster: " + reg)
+                    echo ("Cluster: " + reg1)
+                    echo ("Project: " + reg2)
                     //println params.reg[0]
                 }
             }
