@@ -7,7 +7,7 @@ pipeline {
         stage('Hello') {
             steps {
                 script {
-                    def reg = params.CredID =~ /^\w+_(\w+-\w+-?\w+)-(\w+)/
+                    def reg = (params.CredID =~ /^\w+_(\w+-\w+-?\w+)-(\w+)/)
                 }
             }
         }
