@@ -1,4 +1,16 @@
-def folder = Jenkins.instance.getItemByFullName('folder1');
+import jenkins.*
+import jenkins.model.* 
+import hudson.*
+import hudson.model.*
+def jenkinsCredentials = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
+        com.cloudbees.plugins.credentials.Credentials.class,
+        Jenkins.instance,
+        null,
+        null
+);
+for (creds in jenkinsCredentials) {
+    println(jenkinsCredentials.id)
+    }
 
 pipeline {
     agent any
