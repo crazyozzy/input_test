@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'CredlID', defaultValue: '', description: 'Введите имя токена OpenShift')
+        string(name: 'CredID', defaultValue: '', description: 'Введите имя токена OpenShift')
     }
     stages {
         stage('Hello') {
