@@ -1,5 +1,3 @@
-import jenkins.*
-import jenkins.model.* 
 import hudson.*
 import hudson.model.*
 def jenkinsCredentials = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
@@ -29,7 +27,6 @@ pipeline {
             steps {
                 println("Credential ID: ${sec_req}")
                 println("Credential ID: ${sec_req_input}")
-                println("${folder}")
             }
         }
     }
