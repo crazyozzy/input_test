@@ -18,8 +18,10 @@ pipeline {
                 ok "Yes, let's have a fun."
             }
             steps {
-                println("Job with CredID: ${params.CredID} done.\nCluster: ${reg[0]}")
-                //println params.reg[0]
+                script{
+                    println("Job with CredID: ${params.CredID} done.\nCluster: ${reg[0]}")
+                    //println params.reg[0]
+                }
             }
         }
     }
