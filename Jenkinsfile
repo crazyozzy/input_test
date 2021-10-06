@@ -9,7 +9,7 @@ pipeline {
                 script {
                     def regex = params.CredID =~ /^\w+_(\w+-\w+-?\w+)-(\w+)/
                     reg1 = regex[0][1]
-                    reg1 = regex[0][2]
+                    reg2 = regex[0][2]
                 }
             }
         }
