@@ -1,3 +1,5 @@
+def folder = Jenkins.instance.getItemByFullName('folder1');
+
 pipeline {
     agent any
     parameters {
@@ -15,6 +17,7 @@ pipeline {
             steps {
                 println("Credential ID: ${sec_req}")
                 println("Credential ID: ${sec_req_input}")
+                println("${folder}")
             }
         }
     }
