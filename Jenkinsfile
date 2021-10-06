@@ -8,7 +8,7 @@ pipeline {
  /*           input {
                 message "Job will run with this params:\nOC\n${CredentialID}"
                 ok "Yes, let's have a fun."
-  */          }
+              }  */
             steps {
                 println("Job with CredID ${CredID} done.")
             }
