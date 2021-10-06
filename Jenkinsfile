@@ -7,7 +7,7 @@ pipeline {
         stage('Hello') {
             steps {
                 script {
-                    reg = params.CredID
+                    def reg = params.CredID
                 }
             }
         }
