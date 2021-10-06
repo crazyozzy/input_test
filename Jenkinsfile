@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Hello') {
             input {
-                message "Job will run with this params:\nOC\n${CredID}"
+                message "Job will run with this params: ${CredID}"
                 ok "Yes, let's have a fun."
             }
             steps {
