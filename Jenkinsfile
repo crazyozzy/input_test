@@ -6,7 +6,9 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                def reg = CredID =~ /^\w+_(\w+-\w+-?\w+)-(\w+)/
+                script {
+                    def reg = CredID =~ /^\w+_(\w+-\w+-?\w+)-(\w+)/
+                }
             }
         }
         stage('Output') {
