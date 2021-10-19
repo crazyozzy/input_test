@@ -5,7 +5,7 @@ node{
     checkout(scm)
   }
   stage('yaml test'){
-    yamlContent = readYaml(file: test.yml)
+    yamlContent = readYaml(file: 'test.yml')
 
     echo yamlContent
   }
