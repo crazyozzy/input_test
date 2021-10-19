@@ -20,7 +20,7 @@ node{
   stage('yaml test'){
     yamlContent = readYaml(file: 'test.yml')
 
-    println yamlContent
+    sh('cat test.yml')
 
     echo yamlToString(yamlContent)
 
