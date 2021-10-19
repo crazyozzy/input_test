@@ -3,6 +3,7 @@ import org.yaml.snakeyaml.DumperOptions
 import static org.yaml.snakeyaml.DumperOptions.FlowStyle.BLOCK
 
 def yamlContent
+def inputContent
 
 @NonCPS
 String yamlToString(Object data){
@@ -15,6 +16,7 @@ node{
   stage('git checkout'){
     checkout(scm)
   }
+
   stage('yaml test'){
     yamlContent = readYaml(file: 'test.yml')
 
@@ -22,12 +24,15 @@ node{
 
     echo yamlToString(yamlContent)
 
-    input(
+    inputContent = input(
       message: 'config',
       parameters:[
         text(defaultValue: yamlToString(yamlContent), description: 'config', name: 'config')
       ]
     )
 
+    writeYaml(file: 'test_write.yml', overwrite: true, data: inputContent)
+
+    sh('git add --all; git commit -m "jenkins commit"; git push')
   }
 }
