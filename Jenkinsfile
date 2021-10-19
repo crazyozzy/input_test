@@ -1,3 +1,25 @@
+import groovy.yaml.YamlSlurper
+
+def configYaml = '''\
+---
+application: "Sample App"
+users:
+- name: "mrhaki"
+  likes:
+  - Groovy
+  - Clojure
+  - Java
+- name: "Hubert"
+  likes:
+  - Apples
+  - Bananas
+connections:
+- "WS1"
+- "WS2"
+'''
+
+def config = new YamlSlurper().parseText(configYaml)
+
 pipeline {
     agent any
     parameters {
@@ -24,6 +46,7 @@ pipeline {
                     echo ("Cluster: " + reg1)
                     echo ("Project: " + reg2)
                     //println params.reg[0]
+					println config
                 }
             }
         }
