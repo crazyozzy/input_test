@@ -32,7 +32,11 @@ node{
     )
 
     writeYaml(file: 'test_write.yml', overwrite: true, data: inputContent)
+  }
 
+  stage('git push'){
+    sh('git config --global user.email "crazyozzy001@gmail.com"')
+    sh('git config --global user.name "crazyozzy_jenkins"')
     sh('git add --all; git commit -m "jenkins commit"; git push')
   }
 }
