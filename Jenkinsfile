@@ -8,5 +8,13 @@ node{
     yamlContent = readYaml(file: 'test.yml')
 
     println yamlContent
+
+    input(
+      message: 'config',
+      parameters:[
+        text(defaultvalue: '123', description: 'config', name: 'config')
+      ]
+    )
+
   }
 }
