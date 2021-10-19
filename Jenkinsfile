@@ -12,7 +12,7 @@ node{
     input(
       message: 'config',
       parameters:[
-        text(defaultvalue: '123', description: 'config', name: 'config')
+        text(defaultValue: '123', description: 'config', name: 'config')
       ]
     )
 
