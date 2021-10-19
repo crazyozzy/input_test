@@ -7,6 +7,6 @@ node{
   stage('yaml test'){
     yamlContent = readYaml(file: 'test.yml')
 
-    echo yamlContent
+    println yamlContent
   }
 }
