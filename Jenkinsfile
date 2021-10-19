@@ -33,6 +33,6 @@ node{
 
     writeYaml(file: 'test_write.yml', overwrite: true, data: inputContent)
 
-    sh('cat test_write.yml | sed "s/|/---/" | sed "s/\s\s//"')
+    sh('cat test_write.yml | sed "s/|/---/" | sed \'s/\s\s//\'')
   }
 }
