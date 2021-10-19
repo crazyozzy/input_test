@@ -1,4 +1,4 @@
-import groovy.yaml.YamlSlurper
+//import groovy.yaml.YamlSlurper
 
 def configYaml = '''\
 ---
@@ -18,7 +18,7 @@ connections:
 - "WS2"
 '''
 
-def config = new YamlSlurper().parseText(configYaml)
+//def config = new YamlSlurper().parseText(configYaml)
 
 node{
   stage('yaml test'){
