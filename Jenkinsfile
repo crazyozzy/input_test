@@ -49,5 +49,6 @@ node{
     println jsonContent
     jsonContent = new JsonBuilder(jsonContent).toPrettyString()
     println jsonContent
+    println yamlToString(jsonContent)
   }
 }
