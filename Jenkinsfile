@@ -33,15 +33,12 @@ node{
     )
 
     writeYaml(file: 'test_write.yml', overwrite: true, data: inputContent)
-
-    yamlContent = readYaml(file: 'test2.yml')
-
     sh('''cat test_write.yml | sed "/^|/d" | sed \'s/^\\s\\s//\'''')
 
-    jsonContent = readJSON(text: yamlContent.items.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration")
-
+    yamlContent = readYaml(file: 'test2.yml')
+    //jsonContent = readJSON(text: yamlContent.items.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration")
+    jsonContent = new JsonBuilder(yamlContent.items.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration").toPrettyString()
     writeJSON(file: 'test_write.yml', overwrite: true, data: jsonContent)
-
     sh('''cat test_write.yml''')
   }
 }
