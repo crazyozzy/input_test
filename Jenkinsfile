@@ -44,6 +44,7 @@ node{
     writeJSON(file: 'test_write.yml', overwrite: true, json: jsonContent)
     sh('''cat test_write.yml''')
 
-    yamlContent = new YamlConverter().convertJsonToYaml(new StringReader(jsonContent).read())
+    jsonContent = jsonSlurper.parse(new String(jsonContent))
+    println jsonContent
   }
 }
