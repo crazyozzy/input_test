@@ -58,8 +58,7 @@ node{
 
     println jsonContent
     println asYaml(jsonContent)
-    jsonContent = new JsonBuilder(jsonContent).toPrettyString()
-    println jsonContent
+    println new JsonBuilder(asYaml(jsonContent)).toPrettyString()
     
   }
 }
