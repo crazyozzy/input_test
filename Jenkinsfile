@@ -39,7 +39,7 @@ node{
     yamlContent = readYaml(file: 'test2.yml')
     //jsonContent = readJSON(text: yamlContent.items.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration")
     jsonContent = new JsonBuilder(yamlContent.items.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration").toPrettyString()
-    writeJSON(file: 'test_write.yml', overwrite: true, data: jsonContent)
+    writeJSON(file: 'test_write.yml', overwrite: true, json: jsonContent)
     sh('''cat test_write.yml''')
   }
 }
