@@ -3,6 +3,10 @@ import org.yaml.snakeyaml.DumperOptions
 import static org.yaml.snakeyaml.DumperOptions.FlowStyle.BLOCK
 import groovy.json.*
 import groovy.yaml.*
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
 def yamlContent
 def inputContent
@@ -13,6 +17,12 @@ String yamlToString(Object data){
     def opts = new DumperOptions()
     opts.setDefaultFlowStyle(BLOCK)
     return new Yaml(opts).dump(data)
+}
+
+String asYaml(String jsonString){
+  JsonNode jsonNodeTree = new ObjectMapper().readTree(jsonString)
+  String jsonAsYaml = new YAMLMapper().writeValueAsString(jsonNodeTree)
+  return jsonAsYaml
 }
 
 node{
@@ -47,7 +57,7 @@ node{
     //sh('''cat test_write.yml''')
 
     println jsonContent
-    println yamlToString(jsonContent)
+    println asYaml(jsonContent)
     jsonContent = new JsonBuilder(jsonContent).toPrettyString()
     println jsonContent
     
