@@ -63,6 +63,7 @@ node{
     println jsonContent
     println asYaml(jsonContent)
     println new JsonBuilder(asYaml(jsonContent)).toPrettyString()
+    println new JsonBuilder(asYaml(jsonContent)).toString()
     
   }
 }
