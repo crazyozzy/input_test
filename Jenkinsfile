@@ -47,8 +47,9 @@ node{
     //sh('''cat test_write.yml''')
 
     println jsonContent
+    println yamlToString(jsonContent)
     jsonContent = new JsonBuilder(jsonContent).toPrettyString()
     println jsonContent
-    println yamlToString(jsonContent)
+    
   }
 }
