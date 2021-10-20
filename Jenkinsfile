@@ -20,7 +20,7 @@ String yamlToString(Object data){
 }
 
 @NonCPS
-String asYaml(String jsonString){
+String asYaml(Object jsonString){
   JsonNode jsonNodeTree = new ObjectMapper().readTree(jsonString)
   String jsonAsYaml = new YAMLMapper().writeValueAsString(jsonNodeTree)
   return jsonAsYaml
