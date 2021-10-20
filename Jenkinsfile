@@ -3,6 +3,7 @@ import org.yaml.snakeyaml.DumperOptions
 import static org.yaml.snakeyaml.DumperOptions.FlowStyle.BLOCK
 import groovy.json.*
 import groovy.yaml.util.*
+import org.apache.groovy.yaml.util.YamlConverter
 
 def yamlContent
 def inputContent
