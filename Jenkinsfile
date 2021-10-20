@@ -43,8 +43,8 @@ node{
     //jsonContent = readJSON(text: yamlContent.items.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration")
     //jsonContent = new JsonBuilder(yamlContent.items.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration").toPrettyString()
     jsonContent = sh(script: """cat test2.yml | awk '/{\".*\"}}/{print \$0}'""", returnStdout: true)
-    writeJSON(file: 'test_write.yml', json: jsonContent)
-    sh('''cat test_write.yml''')
+    //writeJSON(file: 'test_write.yml', json: jsonContent)
+    //sh('''cat test_write.yml''')
 
     println jsonContent
     jsonContent = jsonSlurper.parse(jsonContent)
