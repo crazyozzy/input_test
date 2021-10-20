@@ -47,7 +47,7 @@ node{
     //sh('''cat test_write.yml''')
 
     println jsonContent
-    jsonContent = new jsonSlurper.parse(jsonContent)
+    jsonContent = new jsonSlurper().parse(jsonContent)
     println jsonContent
   }
 }
