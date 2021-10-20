@@ -56,6 +56,7 @@ node{
     //writeJSON(file: 'test_write.yml', json: jsonContent)
     //sh('''cat test_write.yml''')
 
+    println readJSON(text: yamlContent.items.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration")
     println jsonContent
     println asYaml(jsonContent)
     println new JsonBuilder(asYaml(jsonContent)).toPrettyString()
