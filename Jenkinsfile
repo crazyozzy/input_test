@@ -4,6 +4,7 @@ import static org.yaml.snakeyaml.DumperOptions.FlowStyle.BLOCK
 
 def yamlContent
 def inputContent
+def jsonContent
 
 @NonCPS
 String yamlToString(Object data){
@@ -32,6 +33,12 @@ node{
     )
 
     writeYaml(file: 'test_write.yml', overwrite: true, data: inputContent)
+
+    yamlContent = readYaml(file: 'test2.yml')
+
+    jsonContent = readJson(text: yamlContent.items.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration")
+
+    writeJson(file: 'test_write.yml', overwrite: true, data: jsonContent)
 
     sh('''cat test_write.yml | sed "/^|/d" | sed \'s/^\\s\\s//\'''')
   }
