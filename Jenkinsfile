@@ -44,6 +44,7 @@ node{
     writeJSON(file: 'test_write.yml', json: jsonContent)
     sh('''cat test_write.yml''')
 
+    println jsonContent
     jsonContent = jsonSlurper.parse(jsonContent)
     println jsonContent
   }
