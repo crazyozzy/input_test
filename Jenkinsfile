@@ -47,7 +47,7 @@ node{
     //sh('''cat test_write.yml''')
 
     println jsonContent
-    jsonContent = new jsonSlurper().parse(jsonContent)
+    jsonContent = new JsonBuilder(yamlContent.items.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration").toPrettyString()
     println jsonContent
   }
 }
