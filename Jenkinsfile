@@ -20,7 +20,7 @@ String yamlToString(Object data){
 }
 
 @NonCPS
-String asYaml(Object jsonString){
+String asYaml(String jsonString){
   JsonNode jsonNodeTree = new ObjectMapper().readTree(jsonString)
   String jsonAsYaml = new YAMLMapper().writeValueAsString(jsonNodeTree)
   return jsonAsYaml
@@ -58,9 +58,10 @@ node{
     //sh('''cat test_write.yml''')
 
     yamlContent = readYaml(file: 'test2.yml')
-    jsonContent = readJSON(text: yamlContent.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration")
+    //jsonContent = readJSON(text: yamlContent.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration")
+    jsonContent = yamlContent.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration"
     println jsonContent
-    println asYaml(new JsonBuilder(jsonContent).toPrettyString())
+    println asYaml(jsonContent)
     println new JsonBuilder(asYaml(jsonContent)).toPrettyString()
     
   }
